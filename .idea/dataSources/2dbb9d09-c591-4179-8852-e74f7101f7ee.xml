@@ -543,25 +543,78 @@
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="137" parent="2" name="test_tb"/>
-    <column id="138" parent="137" name="id">
+    <table id="137" parent="2" name="bbs_brand">
+      <Comment>品牌</Comment>
+    </table>
+    <table id="138" parent="2" name="test_tb"/>
+    <column id="139" parent="137" name="id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="140" parent="137" name="name">
+      <Position>2</Position>
+      <Comment>名称</Comment>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="141" parent="137" name="description">
+      <Position>3</Position>
+      <Comment>描述</Comment>
+      <DataType>varchar(80)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="142" parent="137" name="img_url">
+      <Position>4</Position>
+      <Comment>图片url</Comment>
+      <DataType>varchar(80)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="143" parent="137" name="web_site">
+      <Position>5</Position>
+      <Comment>品牌网址</Comment>
+      <DataType>varchar(80)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="144" parent="137" name="sort">
+      <Position>6</Position>
+      <Comment>排序: 值越大越靠前</Comment>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="145" parent="137" name="is_display">
+      <Position>7</Position>
+      <Comment>是否可见 1:可见 0:不可见</Comment>
+      <DataType>tinyint(1)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="146" parent="137" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="147" parent="138" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="139" parent="137" name="name">
+    <column id="148" parent="138" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="140" parent="137" name="birthday">
+    <column id="149" parent="138" name="birthday">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="141" parent="137" name="PRIMARY">
+    <key id="150" parent="138" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

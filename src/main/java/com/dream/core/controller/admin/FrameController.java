@@ -26,7 +26,7 @@ public class FrameController {
      * @return
      */
     @RequestMapping(value = "/frame/product_left.do")
-    public String productleft() {
+    public String productLeft() {
         return "frame/product_left";
     }
 
@@ -46,7 +46,7 @@ public class FrameController {
      * @return
      */
     @RequestMapping(value = "/frame/order_left.do")
-    public String orderleft() {
+    public String orderLeft() {
         return "frame/order_left";
     }
 
