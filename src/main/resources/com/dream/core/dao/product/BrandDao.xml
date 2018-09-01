@@ -24,7 +24,7 @@
                 and name = #{name}
             </if>
         </where>
-        order by id desc limit 0,5
+        order by id desc limit #{startRow},#{pageSize}
     </select>
 
     <!--查询总记录数-->

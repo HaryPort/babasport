@@ -9,20 +9,30 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
+/**
+ * @author Harry
+ */
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class BrandServiceImpl implements BrandService {
 
     @Resource
     private BrandDao brandDao;
 
-    @Transactional(readOnly = true)
+    /**
+     * 分页去取品牌列表
+     *
+     * @param brand
+     * @return
+     */
+    @Override
+    @Transactional(readOnly = true, rollbackFor = Exception.class)
     public Pagination getBrandListWithPage(Brand brand) {
 
         //1: 起始页 startRow = (pageNo - 1) * pageSize
         //2: 每页数
         //3: 总记录数
-        Pagination pagination = new Pagination((brand.getPageNo() - 1) * 5, 5, brandDao.getBrandCount(brand));
+        Pagination pagination = new Pagination(brand.getPageNo(), brand.getPageSize(), brandDao.getBrandCount(brand));
         pagination.setList(brandDao.getBrandListWithPage(brand));
         return pagination;
     }

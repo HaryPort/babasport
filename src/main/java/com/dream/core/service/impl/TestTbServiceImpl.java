@@ -8,13 +8,20 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
+/**
+ * @author Harry
+ */
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class TestTbServiceImpl implements TestTbService {
 
     @Resource
     private TestTbDao testTbDao;
 
+    /**
+     * 测试
+     * @param testTb
+     */
     @Override
     public void addTestTb(TestTb testTb) {
         testTbDao.addTestTb(testTb);

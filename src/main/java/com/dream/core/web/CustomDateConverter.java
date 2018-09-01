@@ -9,6 +9,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @author Harry
+ * 日期类型转换
+ */
 public class CustomDateConverter implements WebBindingInitializer {
 
     @Override

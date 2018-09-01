@@ -2,6 +2,10 @@ package com.dream.core.bean;
 
 import java.util.Date;
 
+/**
+ * @author Harry
+ * 测试用的java bean
+ */
 public class TestTb {
 
     private Integer id;

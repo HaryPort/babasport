@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
+ * @author Harry
  * 品牌
  */
 @Controller
@@ -25,22 +26,39 @@ public class BrandController {
     @RequestMapping(value = "/list.do")
     public String list(String name, Integer isDisplay, Integer pageNo, ModelMap modelMap) {
 
+        StringBuilder params = new StringBuilder();
+
         Brand brand = new Brand();
         //isBlank: "" "   " 都是空串
         //isEmpty: ""空串, "  "不是空串
         if (StringUtils.isNotBlank(name)) {
             brand.setName(name);
+            params.append("name=").append(name);
         }
-        brand.setIsDisplay(isDisplay);
+
+        if(isDisplay != null){
+            brand.setIsDisplay(isDisplay);
+            params.append("&").append("isDisplay=").append(isDisplay);
+        }else{
+            params.append("&").append("isDisplay=").append(1);
+        }
+
 
         //Pagination.cpn(1): 页号如果为null 或者小于1. 都将设置为1
         brand.setPageNo(Pagination.cpn(pageNo));
+        //每页数
+        brand.setPageSize(5);
 
         Pagination brandListWithPage = brandService.getBrandListWithPage(brand);
 
-        //返回页面
-        modelMap.addAttribute("pagination", brandListWithPage);//request.setAttribute();
+        //分页展示 /brand/list.do?name=xxxx & idDisplay=1 &pageNo=2
+        String url = "/brand/list.do";
+        brandListWithPage.pageView(url, params.toString());
 
+        // 返回页面
+        modelMap.addAttribute("pagination", brandListWithPage);
+        modelMap.addAttribute("name", name);
+        modelMap.addAttribute("isDisplay", isDisplay);
         return "brand/list";
     }
 
