@@ -5,6 +5,23 @@
 <head>
 <title>babasport-add</title>
 </head>
+<script type="application/javascript">
+	function uploadPic(){
+	    //定义参数
+		var options = {
+		    url : "/upload/uploadPic.do",
+		  	dataType : "json",
+			type : "post",
+			success : function (data) {
+				//回调两个路径
+				//1. url, 2. path
+            }
+		};
+
+		//jquery.form使用方式
+		$("#jvForm").ajaxSubmit(options);
+	}
+</script>
 <body>
 <div class="box-positon">
 	<div class="rpos">当前位置: 品牌管理 - 添加</div>
@@ -36,7 +53,7 @@
 					<td width="20%" class="pn-flabel pn-flabel-h"></td>
 						<td width="80%" class="pn-fcontent">
 						<img width="100" height="100" id="allImgUrl"/>
-						<input type="file" />
+						<input type="file" onchange="uploadPic()" name="pic"/>
 					</td>
 				</tr>
 				<tr>
