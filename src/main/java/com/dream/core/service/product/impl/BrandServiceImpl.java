@@ -37,4 +37,13 @@ public class BrandServiceImpl implements BrandService {
         return pagination;
     }
 
+    /**
+     * 添加品牌
+     * @param brand
+     */
+    @Override
+    public void addBrand(Brand brand) {
+        brandDao.addBrand(brand);
+    }
+
 }

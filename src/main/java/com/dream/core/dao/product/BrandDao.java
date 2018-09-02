@@ -22,5 +22,10 @@ public interface BrandDao {
      * @param brand
      * @return
      */
-    int  getBrandCount(Brand brand);
+    int getBrandCount(Brand brand);
+
+    /**
+     * 添加品牌
+     */
+    void addBrand(Brand brand);
 }

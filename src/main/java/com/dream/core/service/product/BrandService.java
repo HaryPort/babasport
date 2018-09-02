@@ -13,4 +13,10 @@ public interface BrandService {
      * @return
      */
     Pagination getBrandListWithPage(Brand brand);
+
+    /**
+     * 添加品牌
+     * @param brand
+     */
+    void addBrand(Brand brand);
 }

@@ -1,5 +1,7 @@
 package com.dream.core.bean.product;
 
+import com.dream.core.web.Constants;
+
 /**
  * @author Harry
  * 品牌java bean
@@ -12,6 +14,20 @@ public class Brand {
     private String imgUrl;
     private Integer sort;
     private Integer isDisplay;
+    private String allUrl;
+
+    /**
+     * 获取全路径
+     *
+     * @return
+     */
+    public String getAllUrl() {
+        return Constants.IMGAE_URL + imgUrl;
+    }
+
+    public void setAllUrl(String allUrl) {
+        this.allUrl = allUrl;
+    }
 
     /**
      * 页号

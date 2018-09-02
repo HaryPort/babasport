@@ -70,4 +70,14 @@ public class BrandController {
         return "brand/add";
     }
 
+
+    /**
+     * 添加品牌
+     * @return
+     */
+    @RequestMapping(value = "/add.do")
+    public String add(Brand brand){
+        brandService.addBrand(brand);
+        return "redirect:/brand/list.do";
+    }
 }
