@@ -47,7 +47,7 @@
 				<td align="center">${entry.sort}</td>
 				<td align="center"><c:if test="${entry.isDisplay == 1}">是</c:if><c:if test="${entry.isDisplay == 0}">不是</c:if></td>
 				<td align="center">
-					<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;}" href="#">删除</a>
+					<a class="pn-opt" href="#">修改</a> | <a class="pn-opt" onclick="if(!confirm('您确定删除吗？')) {return false;} window.location.href='/brand/delete.do?id=${entry.id}&name=${name}&isDisplay=${isDisplay}'" href="javascript:void(0)">删除</a>
 				</td>
 			</tr>
 		</c:forEach>

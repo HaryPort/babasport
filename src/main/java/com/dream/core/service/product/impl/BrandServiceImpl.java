@@ -39,11 +39,27 @@ public class BrandServiceImpl implements BrandService {
 
     /**
      * 添加品牌
+     *
      * @param brand
      */
     @Override
     public void addBrand(Brand brand) {
         brandDao.addBrand(brand);
+    }
+
+    @Override
+    public void deleteBrandByKey(Integer id) {
+        brandDao.deleteBrandByKey(id);
+    }
+
+    @Override
+    public void deleteBrandByKeys(Integer[] ids) {
+        brandDao.deleteBrandByKeys(ids);
+    }
+
+    @Override
+    public void updateBrandByKey(Brand brand) {
+        brandDao.updateBrandByKey(brand);
     }
 
 }

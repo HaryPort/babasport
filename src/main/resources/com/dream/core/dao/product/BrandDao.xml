@@ -9,7 +9,7 @@
         <result column="description" property="description"/>
         <result column="img_url" property="imgUrl"/>
         <result column="sort" property="sort"/>
-        <result column="isDisplay" property="isDisplay"/>
+        <result column="is_display" property="isDisplay"/>
     </resultMap>
     <!--查询品牌 get*-->
     <!--resultType: 数据库字段名称必须和java domain 一模一样-->
@@ -44,20 +44,68 @@
     <!--添加品牌-->
     <insert id="addBrand" parameterType="Brand">
         insert into bbs_brand
-          <trim prefix="(" suffix=")">
-              name,
-              description,
-              img_url,
-              sort,
-              is_display
-          </trim>
-          values
-          <trim prefix="(" suffix=")">
-              #{name},
-              #{description},
-              #{imgUrl},
-              #{sort},
-              #{isDisplay}
-          </trim>
+        <trim prefix="(" suffix=")">
+            name,
+            description,
+            img_url,
+            sort,
+            is_display
+        </trim>
+        values
+        <trim prefix="(" suffix=")">
+            #{name},
+            #{description},
+            #{imgUrl},
+            #{sort},
+            #{isDisplay}
+        </trim>
     </insert>
+
+    <!--根据主键删除单个品牌-->
+    <delete id="deleteBrandByKey" parameterType="Integer">
+        delete from bbs_brand
+        <where>
+            id=#{id}
+        </where>
+    </delete>
+
+    <!--批量删除-->
+    <delete id="deleteBrandByKeys" parameterType="Integer">
+        delete from bbs_brand
+        <where>
+            id in
+            <foreach collection="array" item="id" open="(" close=")" separator=",">
+                #{id}
+            </foreach>
+        </where>
+    </delete>
+
+    <!--修改品牌-->
+    <update id="updateBrandByKey" parameterType="Brand">
+        update bbs_brand
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+
+            <if test="name != null">
+                description = #{description},
+            </if>
+
+            <if test="name != null">
+                img_url = #{img_url},
+            </if>
+
+            <if test="name != null">
+                sort = #{sort},
+            </if>
+
+            <if test="name != null">
+                is_display = #{isDisplay}
+            </if>
+        </set>
+        <where>
+            id=#{id}
+        </where>
+    </update>
 </mapper>

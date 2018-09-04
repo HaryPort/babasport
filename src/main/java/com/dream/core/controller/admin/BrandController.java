@@ -80,4 +80,29 @@ public class BrandController {
         brandService.addBrand(brand);
         return "redirect:/brand/list.do";
     }
+
+    /**
+     * 删除一个品牌
+     * @param id
+     * @param name
+     * @param isDisplay
+     * @return
+     */
+    @RequestMapping(value = "/delete.do")
+    public String delete (Integer id, String name, String isDisplay, ModelMap model){
+
+        //删除
+        brandService.deleteBrandByKey(id);
+
+        if(StringUtils.isNotBlank(name)){
+            model.addAttribute("name", name);
+        }
+
+        if(isDisplay != null){
+            model.addAttribute("isDisplay", isDisplay);
+        }
+
+        return "redirect:/brand/list.do";
+    }
+
 }
